@@ -9,6 +9,15 @@
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+
+    <%= if Application.get_env(:petal_boilerplate, :fathom_id) do %>
+      <script
+        src="https://cdn.usefathom.com/script.js"
+        data-canonical="false"
+        data-spa="auto"
+        data-site={Application.get_env(:petal_boilerplate, :fathom_id)} defer>
+      </script>
+    <% end %>
   </head>
   <body>
     <%= @inner_content %>
